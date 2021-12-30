@@ -29,14 +29,25 @@ const data = [
 ];
 
 type ICalculator = {
-    updateScore: Function
-}
+  updateScore: Function;
+};
 
 function Calculator(props: ICalculator) {
   return (
     <div className="calculatorContainer">
       <div className="calculatorGrid">
         {data.map((x) => {
+          if (x.key == "x2" || x.key == "x3") {
+            return (
+              <div
+                className="calculatorGridItem"
+                id="doubleOrTriple"
+                onClick={() => props.updateScore(x.value)}
+              >
+                {x.key}
+              </div>
+            );
+          }
           return (
             <div
               className="calculatorGridItem"
@@ -49,7 +60,9 @@ function Calculator(props: ICalculator) {
       </div>
       <div className="calculatorControlsRow">
         <div className="calculatorButton">Undo</div>
-        <div className="calculatorButton" onClick={() => props.updateScore(0)}>Miss</div>
+        <div className="calculatorButton" onClick={() => props.updateScore(0)}>
+          Miss
+        </div>
       </div>
     </div>
   );

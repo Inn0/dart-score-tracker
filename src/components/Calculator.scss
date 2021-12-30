@@ -30,6 +30,12 @@
     }
 }
 
+#doubleOrTriple {
+    &:hover {
+        background-color: base.$primary-color;
+    }
+}
+
 .calculatorControlsRow {
     display: flex;
     flex-direction: row;
