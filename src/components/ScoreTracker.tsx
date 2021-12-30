@@ -1,14 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ScoreTracker.scss";
 import Calculator from "./Calculator";
 import ScoreIndicator from "./ScoreIndicator";
+import e from "express";
 
 function ScoreTracker() {
   const [score, setScore] = useState(501);
+  const [turnScore, setTurnScore] = useState(0);
+  const [turnCounter, setTurnCounter] = useState(0);
 
-  let updateScore = (val: number) => {
-    setScore(score - val);
+  let double = false;
+  let triple = false;
+
+  let updateScore = (val: any) => {
+    if (val == "double") {
+      double = true;
+    } else if (val == "triple") {
+      triple = true;
+    } else {
+      let num = val;
+      if (double) {
+        num = num * 2;
+        double = false;
+      }
+      if (triple) {
+        num = num * 3;
+        triple = false;
+      }
+      setTurnScore(turnScore + num);
+      setTurnCounter(turnCounter + 1);
+    }
   };
+
+  useEffect(() => {
+    if (turnCounter >= 3) {
+      setScore(score - turnScore);
+      setTurnCounter(0);
+      setTurnScore(0);
+    }
+  }, [turnCounter]);
 
   let resetScore = () => {
     let result = window.prompt("Enter new value", "501");
@@ -22,7 +52,11 @@ function ScoreTracker() {
 
   return (
     <div className="scoreTrackerContainer">
-      <ScoreIndicator score={score} resetScore={resetScore} />
+      <ScoreIndicator
+        turnScore={turnScore}
+        score={score}
+        resetScore={resetScore}
+      />
       <Calculator updateScore={updateScore} />
     </div>
   );

@@ -49,7 +49,7 @@ function Calculator(props: ICalculator) {
       </div>
       <div className="calculatorControlsRow">
         <div className="calculatorButton">Undo</div>
-        <div className="calculatorButton">Miss</div>
+        <div className="calculatorButton" onClick={() => props.updateScore(0)}>Miss</div>
       </div>
     </div>
   );

@@ -2,13 +2,21 @@
 
 .scoreIndicatorContainer {
     height: calc(100vh - 440px - 60px);
-    line-height: calc(100vh - 440px - 60px);
+    // line-height: calc(100vh - 440px - 60px);
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .scoreIndicator {
-    font-size: 22pt;
+    font-size: 28pt;
     font-weight: 550;
+    color: base.$text-color;
+    margin: auto;
+}
+
+.turnScoreIndicator {
+    font-size: 18pt;
     color: base.$text-color;
     margin: auto;
 }
