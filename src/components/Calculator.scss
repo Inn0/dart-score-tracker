@@ -16,7 +16,7 @@
 }
 
 .calculatorGridItem {
-    border-radius: 3px;
+    border-radius: 5px;
     text-align: center;
     padding: 10px;
     height: 40px;
@@ -53,7 +53,7 @@
     color: base.$text-color;
     font-weight: 550;
     background-color: base.$primary-color;
-    border-radius: 3px;
+    border-radius: 5px;
 
     &:hover {
         background-color: base.$secondary-color;
