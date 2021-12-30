@@ -1,0 +1,7 @@
+@use "src/base";
+
+.scoreTrackerContainer {
+    display: flex;
+    background-color: base.$background-color;
+    height: 100vh;
+}

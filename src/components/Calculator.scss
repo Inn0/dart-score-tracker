@@ -1,0 +1,25 @@
+@use 'src/base';
+
+.calculatorGrid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 10px;
+    width: 100vw;
+    padding: 10px;
+    height: 420px;
+}
+
+.calculatorGridItem {
+    border-radius: 3px;
+    text-align: center;
+    padding: 10px;
+    height: 40px;
+    font-size: 14pt;
+    line-height: 40px;
+    color: base.$text-color;
+    background-color: base.$color-2;
+
+    &:hover {
+        background-color: base.$color-1;
+    }
+}
