@@ -13,10 +13,16 @@ function ScoreTracker() {
   let triple = false;
 
   let updateScore = (val: any) => {
-    if (val == "double") {
+    if (val === "double") {
       double = true;
-    } else if (val == "triple") {
+    } else if (val === "triple") {
       triple = true;
+    } else if (score - turnScore - val === 0) {
+      alert("You're all done!");
+      resetScore();
+    } else if (score - turnScore - val < 0) {
+      setTurnScore(0);
+      setTurnCounter(0);
     } else {
       let num = val;
       if (double) {
@@ -46,6 +52,8 @@ function ScoreTracker() {
       let newValue: number = +result;
       if (typeof newValue === "number" && newValue <= 701 && newValue >= 0) {
         setScore(newValue);
+        setTurnCounter(0);
+        setTurnScore(0);
       }
     }
   };
