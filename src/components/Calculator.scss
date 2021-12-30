@@ -1,12 +1,18 @@
 @use 'src/base';
 
+.calculatorContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .calculatorGrid {
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-column-gap: 10px;
-    width: 100vw;
+    width: calc(100vw - 20px);
     padding: 10px;
     height: 420px;
+    padding-bottom: 0px;
 }
 
 .calculatorGridItem {
@@ -21,5 +27,29 @@
 
     &:hover {
         background-color: base.$color-1;
+    }
+}
+
+.calculatorControlsRow {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.calculatorButton {
+    width: 50%;
+    margin: 10px;
+    margin-top: 0;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 14pt;
+    color: base.$text-color;
+    font-weight: 550;
+    background-color: base.$primary-color;
+    border-radius: 3px;
+
+    &:hover {
+        background-color: base.$secondary-color;
     }
 }

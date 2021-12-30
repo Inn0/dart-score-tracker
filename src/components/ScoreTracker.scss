@@ -3,5 +3,6 @@
 .scoreTrackerContainer {
     display: flex;
     background-color: base.$background-color;
-    height: 100vh;
+    min-height: 100vh;
+    flex-direction: column;
 }

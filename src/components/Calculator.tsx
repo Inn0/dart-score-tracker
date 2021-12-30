@@ -28,12 +28,31 @@ const data = [
   { key: "20", value: 20 },
 ];
 
-function Calculator() {
-  return <div className="calculatorGrid">
-      {data.map((x) => {
-          return <div className="calculatorGridItem" onClick={() => console.log(x.value)}>{x.key}</div>
-      })}
-  </div>;
+type ICalculator = {
+    updateScore: Function
+}
+
+function Calculator(props: ICalculator) {
+  return (
+    <div className="calculatorContainer">
+      <div className="calculatorGrid">
+        {data.map((x) => {
+          return (
+            <div
+              className="calculatorGridItem"
+              onClick={() => props.updateScore(x.value)}
+            >
+              {x.key}
+            </div>
+          );
+        })}
+      </div>
+      <div className="calculatorControlsRow">
+        <div className="calculatorButton">Undo</div>
+        <div className="calculatorButton">Miss</div>
+      </div>
+    </div>
+  );
 }
 
 export default Calculator;

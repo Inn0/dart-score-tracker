@@ -1,0 +1,14 @@
+@use 'src/base';
+
+.scoreIndicatorContainer {
+    height: calc(100vh - 440px - 60px);
+    line-height: calc(100vh - 440px - 60px);
+    text-align: center;
+}
+
+.scoreIndicator {
+    font-size: 22pt;
+    font-weight: 550;
+    color: base.$text-color;
+    margin: auto;
+}
